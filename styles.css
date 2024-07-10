@@ -1,0 +1,74 @@
+html, body {
+    background-color: #0C0C0C;
+    cursor: crosshair;
+}
+
+.Start{
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    left: 45%;
+    top: 12%;
+
+    background-color: #F2613F;
+    border-radius: 25px;
+
+
+    color: white;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 24px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+.Start:hover{
+
+    background-color:white ;
+
+    color: #F2613F;
+
+    transition-duration: 0.5s;
+
+}
+
+.Start:active{
+    scale: 0.7;
+
+    background-color:white ;
+
+    color: #F2613F;
+
+    transition-duration: 0.5s;
+
+}
+
+h1{
+    margin-left: 100px;
+    color: whitesmoke;
+    font-size: 72px;
+    font-family: "Poppins", sans-serif;
+}
+.Countdown{
+    
+    color: gray;
+    text-align: center;
+    font-size: 210px;
+    font-family: "Poppins", sans-serif;
+}
+.Score{
+    position: fixed;
+    right: 45.5%;
+    top: 30%;
+    color: rgb(40, 40, 40);
+    font-size: 210px;
+    font-family: "Poppins", sans-serif;
+}
+.Bullseye{
+    display: block;
+    position: absolute;
+    background-color: #F2613F;
+    border-radius: 50px;
+    visibility: hidden;
+}
