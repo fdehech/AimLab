@@ -1,25 +1,34 @@
 const body = document.body
+
+
 let startbtn = document.createElement("span");
 startbtn.innerText="Start";
 startbtn.classList.add("Start");
-startbtn.setAttribute("onclick","start()");
 startbtn.classList.add("Landing");
+startbtn.setAttribute("onclick","start()");
 body.append(startbtn);
+
+
+
 let ball = document.createElement("span");
 ball.classList.add("Bullseye")
 ball.style.width='75px';
 ball.style.height='75px';
 ball.setAttribute("onmouseenter","Increment()");
 body.append(ball);
+
+
 let Diff=700;
+let Score = 0;
 let ScoreBoard=document.createElement("span");
 ScoreBoard.classList.add("Score");
-let Score = 0;
 ScoreBoard.innerText=Score;
-let shot = new Audio('shot.mp3');
-let load = new Audio('load.mp3');
 let count = document.createElement('p');
 count.classList.add("Countdown");
+
+let shot = new Audio('shot.mp3');
+let load = new Audio('load.mp3');
+
 
 let X,Y;
 let cls = () => {
