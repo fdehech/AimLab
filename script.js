@@ -32,11 +32,10 @@ let load = new Audio('load.mp3');
 
 let X,Y;
 let cls = () => {
-    trash = body.querySelector(".Landing");
-    trash.remove();
-    trash = body.querySelector(".Landing");
-    trash.remove();
-
+    while(body.querySelector(".Landing")){
+        trash = body.querySelector(".Landing");
+        trash.remove();
+    }
 }
 
 let random = (min,max) =>  {
@@ -63,12 +62,10 @@ let countdown = (time,callback) => {
 let start = () => {
     load.play();
     cls();
-    countdown(3,GAMEON);
-}
-
-let GAMEON = () => {
-    body.append(ScoreBoard);
-    Bullseye();
+    countdown(3,() => {
+        body.append(ScoreBoard);
+        Bullseye();
+    });
 }
 
 let Bullseye = () => {
