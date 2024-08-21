@@ -1,11 +1,15 @@
 const body = document.body
 
+let start = () => {
+    load.play();
+    cls();
+    countdown(3,GAMEON);
+}
 
-let startbtn = document.createElement("span");
+let startbtn = Object.assign(document.createElement("span"),{onclick:start});
 startbtn.innerText="Start";
 startbtn.classList.add("Start");
 startbtn.classList.add("Landing");
-startbtn.setAttribute("onclick","start()");
 body.append(startbtn);
 
 
@@ -33,9 +37,9 @@ let load = new Audio('load.mp3');
 let X,Y;
 let cls = () => {
     while(body.querySelector(".Landing")){
-        trash = body.querySelector(".Landing");
-        trash.remove();
+        body.querySelector(".Landing").remove();
     }
+
 }
 
 let random = (min,max) =>  {
@@ -59,13 +63,9 @@ let countdown = (time,callback) => {
 
 
 
-let start = () => {
-    load.play();
-    cls();
-    countdown(3,() => {
-        body.append(ScoreBoard);
-        Bullseye();
-    });
+let GAMEON = () => {
+    body.append(ScoreBoard);
+    Bullseye();
 }
 
 let Bullseye = () => {
