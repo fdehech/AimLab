@@ -10,8 +10,6 @@ var ScoreBoard=Object.assign(document.createElement("span"),{
     className:"Score",
     innerText:Score
 });
-
-
 let count = Object.assign(document.createElement('p'),{
     className:'Countdown'
 });
@@ -40,54 +38,7 @@ let startbtn = Object.assign(document.createElement("span"),{
     className: "Start Landing",
     innerText:"Start"
 });
-
 body.append(startbtn);
-
-let ball = Object.assign(document.createElement("span"),{
-    className:"Bullseye",
-});
-
-Object.assign(ball.style, {
-    width: '75px',
-    height: '75px'
-});
-
-ball.addEventListener("mouseover",Increment);
-body.append(ball);
-
-
-let Bullseye = () => {
-
-    X=random(0,1400);
-    Y=random(0,680);
-    ball.remove();
-    ball.style.visibility='visible';
-    ball.style.left= String(X) + "px";
-    ball.style.top= String(Y) + "px";
-    body.append(ball);
-    setTimeout(() => {
-        ball.remove();
-        setTimeout(()=>{
-            Bullseye();
-        },350);
-    },Diff);
-
-}
-
-let countdown = (time,callback) => {
-
-    count.innerText=time;
-    body.append(count);
-    if(time==0){
-        count.remove();
-        callback();
-        return 0;
-    }
-    
-    setTimeout(() => {
-        countdown(time - 1,callback);
-    }, 1000); 
-}
 
 let Increment = () => {
     shot.play();
@@ -136,3 +87,50 @@ let Increment = () => {
     
     }
 }
+
+
+let ball = Object.assign(document.createElement("span"),{
+    className:"Bullseye",
+});
+Object.assign(ball.style, {
+    width: '75px',
+    height: '75px'
+});
+ball.addEventListener("mouseover",Increment);
+body.append(ball);
+
+
+let countdown = (time,callback) => {
+
+    count.innerText=time;
+    body.append(count);
+    if(time==0){
+        count.remove();
+        callback();
+        return 0;
+    }
+    
+    setTimeout(() => {
+        countdown(time - 1,callback);
+    }, 1000); 
+}
+
+let Bullseye = () => {
+
+    X=random(0,1400);
+    Y=random(0,680);
+    ball.remove();
+    ball.style.visibility='visible';
+    ball.style.left= String(X) + "px";
+    ball.style.top= String(Y) + "px";
+    body.append(ball);
+    setTimeout(() => {
+        ball.remove();
+        setTimeout(()=>{
+            Bullseye();
+        },350);
+    },Diff);
+
+}
+
+
